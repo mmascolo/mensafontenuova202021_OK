@@ -25,7 +25,7 @@ public class Menu3 extends Fragment {
         View v =inflater.inflate(R.layout.fragment_menu_3, container, false);
 
         webVieweb = (WebView) v.findViewById(R.id.webView1);
-        webVieweb.loadUrl("https://google.com");
+        webVieweb.loadUrl("https://www.fonte-nuova.it");
 
         // Enable Javascript
         WebSettings webSettings = webVieweb.getSettings();
