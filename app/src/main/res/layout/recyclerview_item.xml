@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/primo"
+
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/secondo"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/contorno"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dolce"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:text="Tutti i pasti includono pane."
+        android:textAlignment="viewStart"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

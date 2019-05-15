@@ -3,14 +3,9 @@ package net.simplifiedcoding.navigationdrawerexample;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import org.xml.sax.helpers.DefaultHandler;
 
 
 
@@ -31,7 +26,7 @@ public class Menu1 extends Fragment {
 
 
         View v = inflater.inflate(R.layout.fragment_menu_1, container, false);
-
+/*
         View innerView = v.findViewById(R.id.text1);
         final TextView emailTextView = (TextView) innerView;
 
@@ -56,7 +51,7 @@ public class Menu1 extends Fragment {
 
 
 
-
+*/
 
 
         return v;
