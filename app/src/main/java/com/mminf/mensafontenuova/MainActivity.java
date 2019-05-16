@@ -1,4 +1,4 @@
-package net.simplifiedcoding.navigationdrawerexample;
+package com.mminf.mensafontenuova;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;

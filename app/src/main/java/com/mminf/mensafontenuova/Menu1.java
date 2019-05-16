@@ -1,9 +1,8 @@
-package net.simplifiedcoding.navigationdrawerexample;
+package com.mminf.mensafontenuova;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +15,15 @@ import android.widget.ListView;
 
 
 public class Menu1 extends Fragment {
+    ArrayList<Elem> myList;
+
+    ListView lv;
+    AdapterA adapterA;
+    AdapterB adapterB;
+    boolean running = false;
+    Thread thread;
+
+
 
     @Nullable
     @Override
@@ -26,11 +34,17 @@ public class Menu1 extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_menu_2, container, false);
 
+        lv = (ListView) v.findViewById(R.id.rsspertini);
+
+        myList = new ArrayList<Elem>();
+
+        adapterA = new AdapterA(this, myList);
+        adapterB = new AdapterB(this, myList);
 
 
 
 
-
+/*
 
 
         Thread thread = new Thread(new Runnable() {
@@ -43,7 +57,6 @@ public class Menu1 extends Fragment {
                     parser = new RssParser("https://www.icsandropertinifontenuova.edu.it/rss.xml");
                     Log.i("LOG", "Description: " + parser.getItem(3).description); //4th item's description
 
-                    lv = (ListView) v.findViewById(R.id.rsspertini);
 
 
 
@@ -58,10 +71,8 @@ public class Menu1 extends Fragment {
         });
 
         thread.start();
-
-
+*/
         return v;
-
 
 
     }

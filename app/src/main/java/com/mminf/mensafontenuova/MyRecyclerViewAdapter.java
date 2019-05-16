@@ -1,4 +1,4 @@
-package net.simplifiedcoding.navigationdrawerexample;
+package com.mminf.mensafontenuova;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
