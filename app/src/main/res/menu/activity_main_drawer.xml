@@ -4,16 +4,41 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_menu1"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Menu 1" />
+            android:icon="@mipmap/cameriere"
+            android:title="Menù" />
         <item
             android:id="@+id/nav_menu2"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Menu 2" />
+            android:icon="@mipmap/saldo"
+            android:title="Saldo" />
         <item
             android:id="@+id/nav_menu3"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Menu 3" />
+            android:icon="@mipmap/rss"
+            android:title="News Pertini" />
+        <item
+            android:id="@+id/nav_menu4"
+            android:icon="@mipmap/rss"
+            android:title="News Pirandello" />
+        <item
+            android:id="@+id/nav_menu5"
+            android:icon="@mipmap/www"
+            android:title="Sito De Filippo" />
+        <item
+            android:id="@+id/nav_menu6"
+            android:icon="@mipmap/www"
+            android:title="Comune Fonte Nuova" />
+        <item
+            android:id="@+id/nav_menu7"
+            android:icon="@mipmap/sett"
+            android:title="Impostazioni" />
+        <item
+            android:id="@+id/nav_menu8"
+            android:icon="@mipmap/www"
+            android:title="Assistenza" />
+
+        <item
+            android:id="@+id/nav_menu9"
+            android:title="Copyright Mascolo Michele" />
+
 
     </group>
 
