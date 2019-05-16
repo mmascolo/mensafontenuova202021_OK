@@ -12,16 +12,34 @@ import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
-    private List<Integer> mViewColors;
-    private List<String> mAnimals;
+
+    private List<String> mdata;
+    private List<String> mgiorno;
+    private List<String> mprimo;
+    private List<String> msecondo;
+    private List<String> mcontorno;
+    private List<String> mdolce;
+
+
+
+
+
+
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    MyRecyclerViewAdapter(Context context, List<Integer> colors, List<String> animals) {
+    MyRecyclerViewAdapter(Context context, List<String> data,List<String> giorno,List<String> primo,List<String> secondo,List<String> contorno,List<String> dolce) {
         this.mInflater = LayoutInflater.from(context);
-        this.mViewColors = colors;
-        this.mAnimals = animals;
+        this.mdata = data;
+        this.mgiorno = giorno;
+        this.mprimo = primo;
+        this.msecondo = secondo;
+        this.mcontorno = contorno;
+        this.mdolce = dolce;
+
+
+
     }
 
     // inflates the row layout from xml when needed
@@ -35,21 +53,33 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     // binds the data to the view and textview in each row
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        int color = mViewColors.get(position);
-        String animal = mAnimals.get(position);
-        holder.myView.setBackgroundColor(color);
-        holder.myTextView.setText(animal);
+
+        String data = mdata.get(position);
+        String giorno = mgiorno.get(position);
+        String primo = mprimo.get(position);
+        String secondo = msecondo.get(position);
+        String contorno = mcontorno.get(position);
+        String dolce = mdolce.get(position);
+
+        holder.data.setText(data);
+        holder.giorno.setText(giorno);
+
+        holder.primo.setText(primo);
+        holder.secondo.setText(secondo);
+        holder.contorno.setText(contorno);
+        holder.dolce.setText(dolce);
+
     }
 
     // total number of rows
     @Override
     public int getItemCount() {
-        return mAnimals.size();
+        return mprimo.size();
     }
 
     // convenience method for getting data at click position
     public String getItem(int id) {
-        return mAnimals.get(id);
+        return mprimo.get(id);
     }
 
     // allows clicks events to be caught
@@ -64,14 +94,33 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        View myView;
-        TextView myTextView;
+        TextView data;
+        TextView giorno;
+        TextView primo;
+        TextView secondo;
+        TextView contorno;
+        TextView dolce;
+
+
+
+
+
+
 
         ViewHolder(View itemView) {
             super(itemView);
-            myView = itemView.findViewById(R.id.primo);
-            myTextView = itemView.findViewById(R.id.secondo);
-            itemView.setOnClickListener(this);
+
+        data = itemView.findViewById(R.id.data);
+        giorno = itemView.findViewById(R.id.giorno);
+        primo = itemView.findViewById(R.id.primo);
+        secondo = itemView.findViewById(R.id.secondo);
+        contorno = itemView.findViewById(R.id.contorno);
+        dolce = itemView.findViewById(R.id.dolce);
+
+
+
+
+          itemView.setOnClickListener(this);
         }
 
         @Override
