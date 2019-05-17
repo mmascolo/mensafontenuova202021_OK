@@ -80,13 +80,24 @@
                                           </PersistentState>
                                         </value>
                                       </entry>
+                                      <entry key="foregroundClipArt">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="color" value="000000" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                       <entry key="foregroundImage">
                                         <value>
                                           <PersistentState>
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="66" />
+                                                <entry key="scalingPercent" value="49" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -99,9 +110,9 @@
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="ffffff" />
                                       <entry key="backgroundLayerName" value="ic_www_bk" />
-                                      <entry key="foregroundImage" value="C:\Ham\sacco\iconGen_icons8-rss-96_assets\icons8-rss-96@3x.png" />
-                                      <entry key="foregroundLayerName" value="ic_rss" />
-                                      <entry key="outputName" value="rss" />
+                                      <entry key="foregroundImage" value="C:\Users\michele\Downloads\trasferimento.png" />
+                                      <entry key="foregroundLayerName" value="ic_back" />
+                                      <entry key="outputName" value="back" />
                                     </map>
                                   </option>
                                 </PersistentState>

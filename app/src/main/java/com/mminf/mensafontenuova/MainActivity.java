@@ -1,5 +1,6 @@
 package com.mminf.mensafontenuova;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -78,13 +79,38 @@ public class MainActivity extends AppCompatActivity
         switch (itemId) {
             case R.id.nav_menu1:
                 fragment = new Menu2();
+
+
                 break;
             case R.id.nav_menu2:
-                fragment = new Menu1();
+
+                Intent intent = new Intent(MainActivity.this, ITCutiesReaderAppActivity.class);
+                startActivity(intent);
+
+
+                // fragment = new Menu1();
                 break;
             case R.id.nav_menu3:
                 fragment = new Menu3();
                 break;
+
+            case R.id.nav_menu4:
+                fragment = new Menu3();
+                break;
+            case R.id.nav_menu5:
+                fragment = new Menu3();
+                break;
+            case R.id.nav_menu6:
+                fragment = new Menu3();
+                break;
+            case R.id.nav_menu7:
+                fragment = new Menu3();
+                break;
+            case R.id.nav_menu8:
+                fragment = new Menu3();
+                break;
+
+
         }
 
         //replacing the fragment

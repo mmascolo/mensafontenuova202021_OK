@@ -1,4 +1,6 @@
+
 package com.mminf.mensafontenuova;
+
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,22 +8,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
-
-/**
- * Created by Belal on 18/09/16.
- */
 
 
 public class Menu1 extends Fragment {
-    ArrayList<Elem> myList;
-
-    ListView lv;
-    AdapterA adapterA;
-    AdapterB adapterB;
-    boolean running = false;
-    Thread thread;
 
 
 
@@ -34,44 +24,13 @@ public class Menu1 extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_menu_2, container, false);
 
-        lv = (ListView) v.findViewById(R.id.rsspertini);
-
-        myList = new ArrayList<Elem>();
-
-        adapterA = new AdapterA(this, myList);
-        adapterB = new AdapterB(this, myList);
-
-
-
-
-/*
-
-
-        Thread thread = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                try  {
-
-                    RssParser parser;
-                    parser = new RssParser("https://www.icsandropertinifontenuova.edu.it/rss.xml");
-                    Log.i("LOG", "Description: " + parser.getItem(3).description); //4th item's description
+        //  Intent intent = new Intent(getActivity(), ITCutiesReaderAppActivity.class);
+        // startActivity(intent);
 
 
 
 
 
-
-
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        thread.start();
-*/
         return v;
 
 
@@ -84,4 +43,6 @@ public class Menu1 extends Fragment {
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Rss");
     }
+
+
 }
