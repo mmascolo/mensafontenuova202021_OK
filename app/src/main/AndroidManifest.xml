@@ -26,7 +26,9 @@
         <activity
             android:name="com.mminf.mensafontenuova.ITCutiesReaderAppActivity"
             android:parentActivityName="com.mminf.mensafontenuova.MainActivity"></activity>
-
+        <activity
+            android:name="com.mminf.mensafontenuova.ITCutiesReaderAppActivity2"
+            android:parentActivityName="com.mminf.mensafontenuova.MainActivity"></activity>
 
     </application>
 
