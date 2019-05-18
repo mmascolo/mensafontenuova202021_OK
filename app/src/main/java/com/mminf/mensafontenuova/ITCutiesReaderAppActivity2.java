@@ -41,7 +41,7 @@ public class ITCutiesReaderAppActivity2 extends Activity {
         setContentView(R.layout.activity_rss2);
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar3);
         toolbar.setNavigationIcon(R.mipmap.ic_back); // your drawable
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +56,7 @@ public class ITCutiesReaderAppActivity2 extends Activity {
         GetRSSDataTask task = new GetRSSDataTask();
 
         // Start download RSS task
-        task.execute("www.istitutopirandello.it/public/index.php?format=feed&amp;type=rss");
+        task.execute("http://www.istitutopirandello.it/public/index.php?format=feed&type=rss");
 
         // Debug the thread name
         Log.d("ITCRssReader", Thread.currentThread().getName());
@@ -87,7 +87,7 @@ public class ITCutiesReaderAppActivity2 extends Activity {
         protected void onPostExecute(List<RssItem> result) {
 
             // Get a ListView from main view
-            ListView itcItems = (ListView) findViewById(R.id.listMainView);
+            ListView itcItems = (ListView) findViewById(R.id.listMainView2);
 
             // Create a list adapter
             ArrayAdapter<RssItem> adapter = new ArrayAdapter<RssItem>(local, android.R.layout.simple_list_item_1, result);

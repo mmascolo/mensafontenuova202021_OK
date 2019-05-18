@@ -84,32 +84,38 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_menu2:
 
-                Intent intent = new Intent(MainActivity.this, ITCutiesReaderAppActivity.class);
-                startActivity(intent);
 
 
                 // fragment = new Menu1();
                 break;
             case R.id.nav_menu3:
-                Intent intent2 = new Intent(MainActivity.this, ITCutiesReaderAppActivity2.class);
-                startActivity(intent2);
+                Intent intent = new Intent(MainActivity.this, ITCutiesReaderAppActivity.class);
+                startActivity(intent);
 
                 break;
 
             case R.id.nav_menu4:
-                fragment = new Menu3();
+                Intent intent2 = new Intent(MainActivity.this, ITCutiesReaderAppActivity2.class);
+                startActivity(intent2);
+
                 break;
             case R.id.nav_menu5:
-                fragment = new Menu3();
+
+                // sito de filippo
+                fragment = new Menu4();
                 break;
             case R.id.nav_menu6:
+
+                //sito comune fonte nuova
                 fragment = new Menu3();
                 break;
             case R.id.nav_menu7:
-                fragment = new Menu3();
+                //impostazioni
+                fragment = new Menu7();
                 break;
             case R.id.nav_menu8:
-                fragment = new Menu3();
+                //assistenza
+                fragment = new Menu5();
                 break;
 
 
