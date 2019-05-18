@@ -85,8 +85,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_menu2:
 
 
-
-                // fragment = new Menu1();
+                fragment = new Menu1();
                 break;
             case R.id.nav_menu3:
                 Intent intent = new Intent(MainActivity.this, ITCutiesReaderAppActivity.class);
