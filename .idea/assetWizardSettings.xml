@@ -97,7 +97,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="49" />
+                                                <entry key="scalingPercent" value="62" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -108,11 +108,11 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="ffffff" />
+                                      <entry key="backgroundColor" value="fdfdfd" />
                                       <entry key="backgroundLayerName" value="ic_www_bk" />
-                                      <entry key="foregroundImage" value="C:\Users\michele\Downloads\trasferimento.png" />
-                                      <entry key="foregroundLayerName" value="ic_back" />
-                                      <entry key="outputName" value="back" />
+                                      <entry key="foregroundImage" value="C:\Users\michele\Desktop\student.png" />
+                                      <entry key="foregroundLayerName" value="ic_student" />
+                                      <entry key="outputName" value="stundent" />
                                     </map>
                                   </option>
                                 </PersistentState>
