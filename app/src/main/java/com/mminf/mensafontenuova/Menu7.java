@@ -100,6 +100,8 @@ public class Menu7 extends Fragment {
 
             }
         });
+
+
     }
 
 
@@ -155,6 +157,7 @@ public class Menu7 extends Fragment {
                 scrivi_str("username", n_user.getText().toString());
                 scrivi_str("password", n_password.getText().toString());
                 scrivi_str("utenza", "SI");
+
 
                 connesso(n_user.getText().toString(), n_password.getText().toString());
                 Log.e("prima", leggi_str("connesso"));

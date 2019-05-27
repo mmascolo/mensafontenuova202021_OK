@@ -61,26 +61,23 @@ public class Menu1 extends Fragment {
         View v = inflater.inflate(R.layout.fragment_menu_2, container, false);
 
 
-
         TextView bambino = v.findViewById(R.id.textView2);
         TextView bambino2 = v.findViewById(R.id.textView4);
 
-
-        if (leggi_str("connesso").equals("NO")) {
             bambino.setVisibility(getView().VISIBLE);
             bambino2.setVisibility(getView().VISIBLE);
             bambino2.setText("Per visualizzare il saldo attuale");
             bambino.setText("Impostare le credenziali nelle impostazioni");
 
-        }
+
 
 
         if (leggi_str("connesso").equals("ok")) {
             bambino.setText("");
-
-
+            bambino2.setVisibility(getView().INVISIBLE);
+            bambino.setVisibility(getView().VISIBLE);
             bambino.setText("Aggiornamento dati saldo in corso");
-            WebView myWebView = v.findViewById(R.id.WEB);
+            final WebView myWebView = v.findViewById(R.id.WEB);
             WebSettings webSettings = myWebView.getSettings();
             webSettings.setJavaScriptEnabled(true);
             myWebView.getSettings().setDomStorageEnabled(true);
@@ -120,7 +117,12 @@ public class Menu1 extends Fragment {
 
                                         scrivi_int("bambini", Integer.parseInt(html21));
                                         Log.e("Contalinee", html21);
-
+                                        try {
+                                            Thread.sleep(1000);
+                                        } catch (InterruptedException e) {
+                                            // TODO Auto-generated catch block
+                                            e.printStackTrace();
+                                        }
                                     }
                                 }
                         );
@@ -161,6 +163,7 @@ public class Menu1 extends Fragment {
                                             saldo.setText(input2);
                                             saldo.setVisibility(getView().VISIBLE);
 
+
                                         }
                                     });
 
@@ -182,7 +185,7 @@ public class Menu1 extends Fragment {
                                     String input = html1;
                                     Log.e("bambino1", html1);
                                     input = input.substring(html1.indexOf(">") + 1, html1.lastIndexOf("\\"));
-                                    input = "Bambino: " + input;
+                                    input = input;
                                     Log.e("bambino", input);
                                     TextView bambino = getView().findViewById(R.id.textView4);
                                     bambino.setText(input);
@@ -217,10 +220,11 @@ public class Menu1 extends Fragment {
                                     String input = html1;
                                     Log.e("bambino", html1);
                                     input = input.substring(html1.indexOf(">") + 1, html1.lastIndexOf("\\"));
-                                    input = "Bambino: " + input;
+                                    input = input;
                                     scrivi_str("bambinoappo2", input);
                                     Log.e("bambino", input);
                                     TextView bambino2 = getView().findViewById(R.id.textView6);
+                                    bambino2.setVisibility(getView().VISIBLE);
                                     bambino2.setText(input);
                                 }
                             });
@@ -236,7 +240,10 @@ public class Menu1 extends Fragment {
                                             input2 = "Saldo: " + input2;
                                             scrivi_str("saldoappo2", input2);
                                             TextView saldo2 = getView().findViewById(R.id.textView7);
+                                            saldo2.setVisibility(getView().VISIBLE);
                                             saldo2.setText(input2);
+
+
                                         }
                                     });
 
@@ -261,9 +268,10 @@ public class Menu1 extends Fragment {
                                     String input = html1;
                                     Log.e("bambino1", html1);
                                     input = input.substring(html1.indexOf(">") + 1, html1.lastIndexOf("\\"));
-                                    input = "Bambino: " + input;
+                                    input = input;
                                     Log.e("bambino", input);
                                     TextView bambino = getView().findViewById(R.id.textView4);
+                                    bambino.setVisibility(getView().VISIBLE);
                                     bambino.setText(input);
 
                                 }
@@ -281,6 +289,7 @@ public class Menu1 extends Fragment {
                                             scrivi_str("saldoappo1", input2);
 
                                             TextView saldo = getView().findViewById(R.id.textView2);
+                                            saldo.setVisibility(getView().VISIBLE);
                                             saldo.setText(input2);
                                         }
                                     });
@@ -295,10 +304,11 @@ public class Menu1 extends Fragment {
                                     String input = html1;
                                     Log.e("bambino", html1);
                                     input = input.substring(html1.indexOf(">") + 1, html1.lastIndexOf("\\"));
-                                    input = "Bambino: " + input;
+                                    input = input;
                                     scrivi_str("bambinoappo2", input);
                                     Log.e("bambino", input);
                                     TextView bambino2 = getView().findViewById(R.id.textView6);
+                                    bambino2.setVisibility(getView().VISIBLE);
                                     bambino2.setText(input);
                                 }
                             });
@@ -314,6 +324,7 @@ public class Menu1 extends Fragment {
                                             input2 = "Saldo: " + input2;
                                             scrivi_str("saldoappo2", input2);
                                             TextView saldo2 = getView().findViewById(R.id.textView7);
+                                            saldo2.setVisibility(getView().VISIBLE);
                                             saldo2.setText(input2);
                                         }
                                     });
@@ -326,10 +337,11 @@ public class Menu1 extends Fragment {
                                     String input = html1;
                                     Log.e("bambino", html1);
                                     input = input.substring(html1.indexOf(">") + 1, html1.lastIndexOf("\\"));
-                                    input = "Bambino: " + input;
+                                    input = input;
                                     scrivi_str("bambinoappo2", input);
                                     Log.e("bambino", input);
                                     TextView bambino2 = getView().findViewById(R.id.textView8);
+                                    bambino2.setVisibility(getView().VISIBLE);
                                     bambino2.setText(input);
                                 }
                             });
@@ -346,6 +358,9 @@ public class Menu1 extends Fragment {
                                             scrivi_str("saldoappo2", input2);
                                             TextView saldo2 = getView().findViewById(R.id.textView9);
                                             saldo2.setText(input2);
+                                            saldo2.setVisibility(getView().VISIBLE);
+
+
                                         }
                                     });
                         }
@@ -367,9 +382,10 @@ public class Menu1 extends Fragment {
                                     String input = html1;
                                     Log.e("bambino1", html1);
                                     input = input.substring(html1.indexOf(">") + 1, html1.lastIndexOf("\\"));
-                                    input = "Bambino: " + input;
+                                    input = input;
                                     Log.e("bambino", input);
                                     TextView bambino = getView().findViewById(R.id.textView4);
+                                    bambino.setVisibility(getView().VISIBLE);
                                     bambino.setText(input);
 
                                 }
@@ -387,7 +403,10 @@ public class Menu1 extends Fragment {
                                             scrivi_str("saldoappo1", input2);
 
                                             TextView saldo = getView().findViewById(R.id.textView2);
+                                            saldo.setVisibility(getView().VISIBLE);
                                             saldo.setText(input2);
+
+
                                         }
                                     });
 
@@ -401,10 +420,11 @@ public class Menu1 extends Fragment {
                                     String input = html1;
                                     Log.e("bambino", html1);
                                     input = input.substring(html1.indexOf(">") + 1, html1.lastIndexOf("\\"));
-                                    input = "Bambino: " + input;
+                                    input = input;
                                     scrivi_str("bambinoappo2", input);
                                     Log.e("bambino", input);
                                     TextView bambino2 = getView().findViewById(R.id.textView6);
+                                    bambino2.setVisibility(getView().VISIBLE);
                                     bambino2.setText(input);
                                 }
                             });
@@ -420,6 +440,7 @@ public class Menu1 extends Fragment {
                                             input2 = "Saldo: " + input2;
                                             scrivi_str("saldoappo2", input2);
                                             TextView saldo2 = getView().findViewById(R.id.textView7);
+                                            saldo2.setVisibility(getView().VISIBLE);
                                             saldo2.setText(input2);
                                         }
                                     });
@@ -432,10 +453,11 @@ public class Menu1 extends Fragment {
                                     String input = html1;
                                     Log.e("bambino", html1);
                                     input = input.substring(html1.indexOf(">") + 1, html1.lastIndexOf("\\"));
-                                    input = "Bambino: " + input;
+                                    input = input;
                                     scrivi_str("bambinoappo2", input);
                                     Log.e("bambino", input);
                                     TextView bambino2 = getView().findViewById(R.id.textView8);
+                                    bambino2.setVisibility(getView().VISIBLE);
                                     bambino2.setText(input);
                                 }
                             });
@@ -451,6 +473,7 @@ public class Menu1 extends Fragment {
                                             input2 = "Saldo: " + input2;
                                             scrivi_str("saldoappo2", input2);
                                             TextView saldo2 = getView().findViewById(R.id.textView9);
+                                            saldo2.setVisibility(getView().VISIBLE);
                                             saldo2.setText(input2);
                                         }
                                     });
@@ -464,10 +487,11 @@ public class Menu1 extends Fragment {
                                     String input = html1;
                                     Log.e("bambino", html1);
                                     input = input.substring(html1.indexOf(">") + 1, html1.lastIndexOf("\\"));
-                                    input = "Bambino: " + input;
+                                    input = input;
                                     scrivi_str("bambinoappo2", input);
                                     Log.e("bambino", input);
                                     TextView bambino2 = getView().findViewById(R.id.textView11);
+                                    bambino2.setVisibility(getView().VISIBLE);
                                     bambino2.setText(input);
                                 }
                             });
@@ -483,7 +507,10 @@ public class Menu1 extends Fragment {
                                             input2 = "Saldo: " + input2;
                                             scrivi_str("saldoappo2", input2);
                                             TextView saldo2 = getView().findViewById(R.id.textView12);
+                                            saldo2.setVisibility(getView().VISIBLE);
                                             saldo2.setText(input2);
+
+
                                         }
                                     });
 
@@ -491,7 +518,6 @@ public class Menu1 extends Fragment {
                         }
 // *********************************************************************************************************************
 //                    *****************************************************************************************************
-
 
                     }
                 }
@@ -502,13 +528,11 @@ public class Menu1 extends Fragment {
 
             });
 
-
         }
 
 
 
         return v;
-
 
     }
 

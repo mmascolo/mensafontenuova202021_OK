@@ -63,9 +63,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -117,6 +115,10 @@ public class MainActivity extends AppCompatActivity
                 fragment = new Menu5();
                 break;
 
+            case R.id.nav_menu10:
+                //calendario
+                fragment = new menu_saldo_sub();
+                break;
 
         }
 
