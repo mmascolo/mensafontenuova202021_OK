@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,103 +72,119 @@ public class menu_saldo_sub extends Fragment {
         String username_sito = leggi_str("username");
         String password_sito = leggi_str("password");
 
-
         String url = "https://www.schoolesuite.it/default1/NSC_Login.aspx?installation_code=fontenuopre";
         final String js = "javascript: document.getElementById('txtUsername').value='" + username_sito + "';" + "document.getElementById('txtPassword').value='" + password_sito + "';" + "document.getElementById('btnOK').click()";
+        final String js2 = "(function ()  {var table = document.getElementById('tblChildrenList'); row = table.rows[1]; col = row.cells[1]; return col.innerHTML;})();";
+        final String js4 = "{var div=';';var ret;ret =';';var table = document.getElementById('tblMainTbl');for (var i = 1, row; row = table.rows[i]; i++) {col = row.cells[0]; ret = ret + '|' + row.cells[0].innerText + div+ row.cells[1].innerText+div +row.cells[2].innerText+div+ row.cells[3].innerText+div +row.cells[4].innerText ;}return ret;})();";
+
+
+        final String aaa;
+
         myWebView3.loadUrl(url);
         myWebView3.setWebViewClient(new WebViewClient() {
+            @Override
             public void onPageFinished(WebView view, String url) {
 
+
                 if (url.contains("fontenuopre")) {
+                    Log.e("fontenuovapre", url);
                     view.evaluateJavascript(js, new ValueCallback<String>() {
                         @Override
                         public void onReceiveValue(String s) {
-                            Log.e("html", js);
+
+
                         }
+
                     });
                 }
 
 
                 if (url.contains("login")) {
+                    Log.d("login", url);
+
+                }
+
+
+                if (url.contains("PWM_ChildrenList.aspx")) {
+                    Log.e("estrai href ", url);
+
+                    view.evaluateJavascript(js2, new ValueCallback<String>() {
+
+
+                        @Override
+                        public void onReceiveValue(String aaaa) {
+
+                            String add = "https://www.schoolesuite.it/default1/" + Html.fromHtml((String) aaaa.substring(70, 154)).toString();
+                            Log.e("add", add);
+
+                            myWebView3.loadUrl(add);
+
+
+                        }
+                    });
 
 
                 }
-                if (url.contains("PWM_ChildrenList.aspx")) {
-
-
-                    view.evaluateJavascript("(function ()  {var table = document.getElementById('tblChildrenList'); row = table.rows[1]; col = row.cells[1]; return col.innerHTML;})();", new ValueCallback<String>() {
-
-                                @Override
-                                public void onReceiveValue(String html21) {
-//                    i= Integer.parseInt(html21);
-
-                                    Log.e("Contalinee", html21);
-
-                                    String input = "";
-
-                                    input = html21;
-                                    input = input.substring(70, 154);
-
-                                    scrivi_str("link1", input);
-
-                                    Log.e("Contalinee", input);
-
-
-                                    try {
-                                        Thread.sleep(2000);
-                                    } catch (InterruptedException e) {
-                                        // TODO Auto-generated catch block
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }
-                    );
-
-                    String input = leggi_str("link1");
-
-                    view.evaluateJavascript("window.location.href = 'https://www.schoolesuite.it/default1/" + input, new ValueCallback<String>() {
+                if (url.contains("PWM_Details.aspx")) {
+                    Log.d("details", url);
+                    Log.d("***JS4***", js4);
+                    view.evaluateJavascript(js4, new ValueCallback<String>() {
                         @Override
-                        public void onReceiveValue(String html21) {
+                        public void onReceiveValue(String a) {
+
+                            Log.e("***********S*********", a);
+                            String[] separated = a.split(";");
+
+                            if (a.equals("null")) {
+                            } else {
+                                Log.e("cal1", separated[0]);
+                                Log.e("cal1", separated[1]);
+                                Log.e("cal1", separated[2]);
+
+
+                                MaterialCalendarView calendario = (MaterialCalendarView) getView().findViewById(R.id.calendarView);
+
+
+                                List<CalendarDay> list = new ArrayList<CalendarDay>();
+
+                                Calendar calendar = Calendar.getInstance();
+
+                                CalendarDay calendarDay = CalendarDay.from(2019, 05, 27);
+
+                                list.add(calendarDay);
+
+
+                                calendario.setDateSelected(CalendarDay.from(2019, 05, 27), true);
+                                calendario.addDecorator(new
+
+                                        EventDecorator(Color.RED, list));
+                                calendario.setDateSelected(CalendarDay.from(2019, 05, 22), true);
+                            }
+
 
                         }
 
-                    }
-                });
 
-
-                if (url.contains("PWM_ChildrenList.aspx")) {
-                    view.evaluateJavascript()
-
-                    Log.e("contatore", Integer.toString(leggi_int("bambini")));
+                    });
 
 
                 }
-
             }
         });
 
 
-        MaterialCalendarView calendario = (MaterialCalendarView) v.findViewById(R.id.calendarView);
+        String DATE = leggi_str("calendario");
+
+        Log.e("calendario", DATE);
 
 
-        List<CalendarDay> list = new ArrayList<CalendarDay>();
-
-        Calendar calendar = Calendar.getInstance();
-
-        CalendarDay calendarDay = CalendarDay.from(2019, 05, 27);
-
-        list.add(calendarDay);
-
-
-        calendario.setDateSelected(CalendarDay.from(2019, 05, 27), true);
-        calendario.addDecorator(new EventDecorator(Color.RED, list));
-        calendario.setDateSelected(CalendarDay.from(2019, 05, 22), true);
 
 
         return v;
 
 
     }
+
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
