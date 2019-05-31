@@ -15,6 +15,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
@@ -30,31 +31,33 @@ import java.util.List;
 
 
 public class menu_saldo_sub extends Fragment {
+
+
     public void scrivi_str(String campo, String valore) {
-        SharedPreferences mPreferences_agg = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences mPreferences_agg = PreferenceManager.getDefaultSharedPreferences(getContext());
         mPreferences_agg.edit().putString(campo, valore).commit();
     }
 
 
     public void scrivi_int(String campo, int valore) {
-        SharedPreferences mPreferences3 = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences mPreferences3 = PreferenceManager.getDefaultSharedPreferences(getContext());
         mPreferences3.edit().putInt(campo, valore).commit();
     }
 
     public int leggi_int(String campo) {
-        SharedPreferences mPreferences_leg = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences mPreferences_leg = PreferenceManager.getDefaultSharedPreferences(getContext());
         int valore = 0;
         return mPreferences_leg.getInt(campo, valore);
     }
 
     public String leggi_str(String campo) {
-        SharedPreferences mPreferences_leg = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences mPreferences_leg = PreferenceManager.getDefaultSharedPreferences(getContext());
         String valore = "";
         return mPreferences_leg.getString(campo, valore);
     }
 
     public String leggi_sito(String campo, String valore) {
-        SharedPreferences mPreferences_leg = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences mPreferences_leg = PreferenceManager.getDefaultSharedPreferences(getContext());
         return mPreferences_leg.getString(campo, valore);
     }
 
@@ -62,7 +65,7 @@ public class menu_saldo_sub extends Fragment {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
         View v = inflater.inflate(R.layout.menu_saldo_sub, container, false);
-
+        String cale = leggi_str("calendario");
 
         final WebView myWebView3 = v.findViewById(R.id.WEBCAL);
         WebSettings webSettings = myWebView3.getSettings();
@@ -74,8 +77,8 @@ public class menu_saldo_sub extends Fragment {
 
         String url = "https://www.schoolesuite.it/default1/NSC_Login.aspx?installation_code=fontenuopre";
         final String js = "javascript: document.getElementById('txtUsername').value='" + username_sito + "';" + "document.getElementById('txtPassword').value='" + password_sito + "';" + "document.getElementById('btnOK').click()";
-        final String js2 = "(function ()  {var table = document.getElementById('tblChildrenList'); row = table.rows[1]; col = row.cells[1]; return col.innerHTML;})();";
-        final String js4 = "{var div=';';var ret;ret =';';var table = document.getElementById('tblMainTbl');for (var i = 1, row; row = table.rows[i]; i++) {col = row.cells[0]; ret = ret + '|' + row.cells[0].innerText + div+ row.cells[1].innerText+div +row.cells[2].innerText+div+ row.cells[3].innerText+div +row.cells[4].innerText ;}return ret;})();";
+        final String js2 = "(function ()  {var table = document.getElementById('tblChildrenList'); row = table.rows[" + cale + "]; col = row.cells[1]; return col.innerHTML;})();";
+        final String js4 = "(function () {var div=';';var ret;ret ='';var table = document.getElementById('tblMainTbl');for (var i = 1, row; row = table.rows[i]; i++) {ret = row.cells[0].innerText + div+ row.cells[1].innerText+div +row.cells[2].innerText+div+ row.cells[3].innerText+div +row.cells[4].innerText+div+ret ;}return ret;})();";
 
 
         final String aaa;
@@ -113,8 +116,8 @@ public class menu_saldo_sub extends Fragment {
 
                         @Override
                         public void onReceiveValue(String aaaa) {
-
-                            String add = "https://www.schoolesuite.it/default1/" + Html.fromHtml((String) aaaa.substring(70, 154)).toString();
+                            Log.e("estratta href ", Html.fromHtml((String) aaaa).toString());
+                            String add = "https://www.schoolesuite.it/default1/PWM_Details.aspx" + Html.fromHtml((String) aaaa.substring(aaaa.lastIndexOf("?"), aaaa.lastIndexOf("=") + 1).toString());
                             Log.e("add", add);
 
                             myWebView3.loadUrl(add);
@@ -132,34 +135,71 @@ public class menu_saldo_sub extends Fragment {
                         @Override
                         public void onReceiveValue(String a) {
 
-                            Log.e("***********S*********", a);
+                            Log.e("STRINGA", a);
+                            a = a.substring(1);
+
                             String[] separated = a.split(";");
+
+
+                            MaterialCalendarView calendario = (MaterialCalendarView) getView().findViewById(R.id.calendarView);
+
+
+                            List<CalendarDay> list = new ArrayList<CalendarDay>();
+                            List<CalendarDay> lista_soldi = new ArrayList<CalendarDay>();
+
+                            Calendar calendar = Calendar.getInstance();
 
                             if (a.equals("null")) {
                             } else {
-                                Log.e("cal1", separated[0]);
-                                Log.e("cal1", separated[1]);
-                                Log.e("cal1", separated[2]);
+
+                                for (int i = 0; i < separated.length - 4; i = i + 5) {
+
+                                    Log.e("i", Integer.toString(i));
 
 
-                                MaterialCalendarView calendario = (MaterialCalendarView) getView().findViewById(R.id.calendarView);
+                                    Log.e("!!!!!!!!", separated[i]);
+                                    String giorno = separated[i].substring(0, 2);
+                                    Log.e("giorno", giorno);
+
+                                    String mese = separated[i].substring(3, 5);
+                                    Log.e("mese", mese);
+
+                                    String anno = separated[i].substring(6, 10);
+                                    Log.e("anno", anno);
+
+                                    if (separated[i + 2].equals("SERVIZIO MENSA")) {
+
+                                        CalendarDay calendarDay = CalendarDay.from(Integer.parseInt(anno), Integer.parseInt(mese), Integer.parseInt(giorno));
+                                        list.add(calendarDay);
 
 
-                                List<CalendarDay> list = new ArrayList<CalendarDay>();
+                                    } else {
 
-                                Calendar calendar = Calendar.getInstance();
-
-                                CalendarDay calendarDay = CalendarDay.from(2019, 05, 27);
-
-                                list.add(calendarDay);
+                                    }
 
 
-                                calendario.setDateSelected(CalendarDay.from(2019, 05, 27), true);
+                                    CalendarDay calendarDay = CalendarDay.from(Integer.parseInt(anno), Integer.parseInt(mese), Integer.parseInt(giorno));
+                                    list.add(calendarDay);
+
+
+                                    Log.e("11111111", separated[i + 1]);
+
+
+                                    Log.e("33333333", separated[i + 3]);
+                                    Log.e("44444444", separated[i + 4]);
+                                }
+
+
+                                TextView incorso = (TextView) getView().findViewById(R.id.incorso);
+
+
                                 calendario.addDecorator(new
 
                                         EventDecorator(Color.RED, list));
-                                calendario.setDateSelected(CalendarDay.from(2019, 05, 22), true);
+                                incorso.setVisibility(View.INVISIBLE);
+                                calendario.setVisibility(View.VISIBLE);
                             }
+
 
 
                         }
@@ -172,10 +212,6 @@ public class menu_saldo_sub extends Fragment {
             }
         });
 
-
-        String DATE = leggi_str("calendario");
-
-        Log.e("calendario", DATE);
 
 
 
@@ -213,8 +249,13 @@ public class menu_saldo_sub extends Fragment {
 
         @Override
         public void decorate(DayViewFacade view) {
-            view.addSpan(new DotSpan(5, color));
+            view.addSpan(new DotSpan(15, color));
+
+
+
         }
+
+
     }
 
 
