@@ -1,7 +1,9 @@
 package com.mminf.mensafontenuova;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -16,6 +18,10 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public void scrivi_str(String campo, String valore) {
+        SharedPreferences mPreferences_agg = PreferenceManager.getDefaultSharedPreferences(this);
+        mPreferences_agg.edit().putString(campo, valore).commit();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +35,7 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+        scrivi_str("menu", "");
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
@@ -91,9 +97,7 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_menu4:
-                Intent intent2 = new Intent(MainActivity.this, ITCutiesReaderAppActivity2.class);
-                startActivity(intent2);
-
+                fragment = new Menu8();
                 break;
             case R.id.nav_menu5:
 

@@ -16,8 +16,8 @@
             android:title="News Pertini" />
         <item
             android:id="@+id/nav_menu4"
-            android:icon="@mipmap/rss"
-            android:title="News Pirandello" />
+            android:icon="@mipmap/www"
+            android:title="Sito Pirandello" />
         <item
             android:id="@+id/nav_menu5"
             android:icon="@mipmap/www"
