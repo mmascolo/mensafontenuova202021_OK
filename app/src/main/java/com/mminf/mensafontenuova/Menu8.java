@@ -22,7 +22,7 @@ public class Menu8 extends Fragment {
         View v = inflater.inflate(R.layout.fragment_menu_8, container, false);
 
         webVieweb = v.findViewById(R.id.webView1);
-        webVieweb.loadUrl("http://www.istitutopirandello.edu.it/");
+        webVieweb.loadUrl("https://www.istitutopirandello.edu.it/");
 
         // Enable Javascript
         WebSettings webSettings = webVieweb.getSettings();

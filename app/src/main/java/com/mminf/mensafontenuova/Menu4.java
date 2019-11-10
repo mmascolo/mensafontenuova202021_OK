@@ -24,8 +24,8 @@ public class Menu4 extends Fragment {
         //change R.layout.yourlayoutfilename for each of your fragments
         View v = inflater.inflate(R.layout.fragment_menu_3, container, false);
 
-        webVieweb = (WebView) v.findViewById(R.id.webView1);
-        webVieweb.loadUrl("http://www.icsdefilippo.gov.it");
+        webVieweb = v.findViewById(R.id.webView1);
+        webVieweb.loadUrl("https://www.icsdefilippo.gov.it");
 
         // Enable Javascript
         WebSettings webSettings = webVieweb.getSettings();
