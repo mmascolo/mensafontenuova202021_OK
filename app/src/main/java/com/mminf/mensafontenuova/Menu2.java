@@ -15,11 +15,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,14 +33,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * Created by Belal on 18/09/16.
- */
 
-
-public class Menu2<aa> extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
+public class Menu2 extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
     OkHttpClient client = new OkHttpClient();
-    public static String readToString(String targetURL) throws IOException {
+
+
+     public static String readToString(String targetURL) throws IOException {
         URL url = new URL(targetURL);
         BufferedReader bufferedReader = new BufferedReader(
                 new InputStreamReader(url.openStream()));
@@ -76,17 +77,7 @@ public class Menu2<aa> extends Fragment implements MyRecyclerViewAdapter.ItemCli
         return mPreferences_leg.getString(campo, valore);
     }
 
-    public void SITO() {
-        Request request = new Request.Builder()
-                .url("https://www.mminf.com/menu.txt")
-                .build();
 
-        try (Response response = client.newCall(request).execute()) {
-            scrivi_str("menu", response.body().string());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static String menu = "";
 
@@ -100,7 +91,10 @@ public class Menu2<aa> extends Fragment implements MyRecyclerViewAdapter.ItemCli
         View v = inflater.inflate(R.layout.fragment_menu_1, container, false);
 
 
-        new OkHttpHandler(getContext()).execute();
+
+        OkHttpHandler downloadFilesTask = new OkHttpHandler(getContext());
+
+        downloadFilesTask.execute();
 
         Log.e("main", menu);
 
@@ -116,13 +110,14 @@ public class Menu2<aa> extends Fragment implements MyRecyclerViewAdapter.ItemCli
         ArrayList<String> secondo = new ArrayList<>();
         ArrayList<String> contorno = new ArrayList<>();
         ArrayList<String> dolce = new ArrayList<>();
+        ArrayList<String> news = new ArrayList<>();
 
 
-String day_appo;
+        String day_appo;
         int aa = menu_cibo.length;
 
 
-        for (int index = 1; index < aa; index++)
+        for (int index = 1; index < aa-1; index++)
 {
     day_appo = menu_cibo[index];
 
@@ -135,6 +130,7 @@ String day_appo;
     secondo.add(day[3]);
     contorno.add(day[4]);
     dolce.add(day[5]);
+    news.add(day[6]);
 
 
 
@@ -146,6 +142,7 @@ String day_appo;
 
 
 
+
         // set up the RecyclerView
         RecyclerView recyclerView = v.findViewById(R.id.rvAnimals);
         LinearLayoutManager horizontalLayoutManager
@@ -153,7 +150,7 @@ String day_appo;
         recyclerView.setLayoutManager(horizontalLayoutManager);
 
 
-        adapter = new MyRecyclerViewAdapter(getActivity(),data,giorno,primo,secondo,contorno,dolce);
+        adapter = new MyRecyclerViewAdapter(getActivity(),data,giorno,primo,secondo,contorno,dolce,news);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
@@ -214,17 +211,13 @@ String day_appo;
     }
 
 
+
+
+
+
     private MyRecyclerViewAdapter adapter;
 
-    private class Connection extends AsyncTask {
 
-        @Override
-        protected Object doInBackground(Object... arg0) {
-            SITO();
-            return null;
-        }
-
-    }
 
 
     @Override
@@ -282,7 +275,7 @@ class OkHttpHandler extends AsyncTask<String, Void, String> {
 
         // Reset the response code
         Request request = new Request.Builder()
-                .url("https://www.mminf.cloud/menu.txt")
+                .url("https://www.mminf.cloud/menu2.txt")
                 .build();
 
         try {
@@ -311,13 +304,24 @@ class OkHttpHandler extends AsyncTask<String, Void, String> {
 
                 Log.e("menu", result);
 
+                dialog.dismiss();
+
+                Toast.makeText(contextRef.get(),result , Toast.LENGTH_SHORT).show();
+                Menu2.menu = result;
 
             }
         } catch (Exception e) {
 
         }
-        dialog.dismiss();
+
     }
+
+
+
+
+
+
+
 }
 
 
