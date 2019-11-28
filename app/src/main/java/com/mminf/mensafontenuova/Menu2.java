@@ -2,7 +2,6 @@ package com.mminf.mensafontenuova;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -21,8 +20,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
-import java.net.InetSocketAddress;
-import java.net.Socket;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,7 +35,39 @@ public class Menu2 extends Fragment implements MyRecyclerViewAdapter.ItemClickLi
     OkHttpClient client = new OkHttpClient();
 
 
-     public static String readToString(String targetURL) throws IOException {
+    public static ArrayList<String> data = new ArrayList<>();
+    public void scrivi_str(String campo, String valore) {
+        SharedPreferences mPreferences_agg = PreferenceManager.getDefaultSharedPreferences(getContext());
+        mPreferences_agg.edit().putString(campo, valore).commit();
+    }
+
+    public void scrivi_int(String campo, int valore) {
+        SharedPreferences mPreferences3 = PreferenceManager.getDefaultSharedPreferences(getContext());
+        mPreferences3.edit().putInt(campo, valore).commit();
+    }
+    public int leggi_int(String campo) {
+        SharedPreferences mPreferences_leg = PreferenceManager.getDefaultSharedPreferences(getContext());
+        int valore = 0;
+        return mPreferences_leg.getInt(campo, valore);
+    }
+    public String leggi_str(String campo) {
+        SharedPreferences mPreferences_leg = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String valore = "";
+        return mPreferences_leg.getString(campo, valore);
+    }
+
+
+
+    public static String menu = "";
+    public static ArrayList<String> giorno = new ArrayList<>();
+    public static ArrayList<String> primo = new ArrayList<>();
+    public static ArrayList<String> secondo = new ArrayList<>();
+    public static ArrayList<String> contorno = new ArrayList<>();
+    public static ArrayList<String> dolce = new ArrayList<>();
+    public static ArrayList<String> news = new ArrayList<>();
+    public static MyRecyclerViewAdapter adapter;
+
+    public static String readToString(String targetURL) throws IOException {
         URL url = new URL(targetURL);
         BufferedReader bufferedReader = new BufferedReader(
                 new InputStreamReader(url.openStream()));
@@ -55,35 +84,6 @@ public class Menu2 extends Fragment implements MyRecyclerViewAdapter.ItemClickLi
         return stringBuilder.toString().trim();
     }
 
-    public void scrivi_str(String campo, String valore) {
-        SharedPreferences mPreferences_agg = PreferenceManager.getDefaultSharedPreferences(getContext());
-        mPreferences_agg.edit().putString(campo, valore).commit();
-    }
-
-    public void scrivi_int(String campo, int valore) {
-        SharedPreferences mPreferences3 = PreferenceManager.getDefaultSharedPreferences(getContext());
-        mPreferences3.edit().putInt(campo, valore).commit();
-    }
-
-    public int leggi_int(String campo) {
-        SharedPreferences mPreferences_leg = PreferenceManager.getDefaultSharedPreferences(getContext());
-        int valore = 0;
-        return mPreferences_leg.getInt(campo, valore);
-    }
-
-    public String leggi_str(String campo) {
-        SharedPreferences mPreferences_leg = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String valore = "";
-        return mPreferences_leg.getString(campo, valore);
-    }
-
-
-
-    public static String menu = "";
-
-
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -91,60 +91,35 @@ public class Menu2 extends Fragment implements MyRecyclerViewAdapter.ItemClickLi
         View v = inflater.inflate(R.layout.fragment_menu_1, container, false);
 
 
+        final RecyclerView recyclerView = v.findViewById(R.id.rvAnimals);
 
-        OkHttpHandler downloadFilesTask = new OkHttpHandler(getContext());
+
+        OkHttpHandler downloadFilesTask = new OkHttpHandler(getContext(), new OnEventListener<Integer>() {
+            @Override
+            public void onSuccess(Integer posizione) {
+                Toast.makeText(getContext(), "OK", Toast.LENGTH_LONG).show();
+
+
+                recyclerView.getLayoutManager().scrollToPosition(posizione);
+
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                Toast.makeText(getContext(), "ERROR: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
 
         downloadFilesTask.execute();
 
         Log.e("main", menu);
 
 
-        String[] menu_cibo = menu.split(",");
-
-
-
-
-        ArrayList<String> data = new ArrayList<>();
-        ArrayList<String> giorno = new ArrayList<>();
-        ArrayList<String> primo = new ArrayList<>();
-        ArrayList<String> secondo = new ArrayList<>();
-        ArrayList<String> contorno = new ArrayList<>();
-        ArrayList<String> dolce = new ArrayList<>();
-        ArrayList<String> news = new ArrayList<>();
-
-
-        String day_appo;
-        int aa = menu_cibo.length;
-
-
-        for (int index = 1; index < aa-1; index++)
-{
-    day_appo = menu_cibo[index];
-
-    System.out.println(day_appo);
-   String[] day =   day_appo.split(";");
-
-    data.add(day[0]);
-    giorno.add(day[1]);
-    primo.add(day[2]);
-    secondo.add(day[3]);
-    contorno.add(day[4]);
-    dolce.add(day[5]);
-    news.add(day[6]);
-
-
-
-
-
-    day_appo ="";
-}
-
 
 
 
 
         // set up the RecyclerView
-        RecyclerView recyclerView = v.findViewById(R.id.rvAnimals);
         LinearLayoutManager horizontalLayoutManager
                 = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(horizontalLayoutManager);
@@ -154,68 +129,14 @@ public class Menu2 extends Fragment implements MyRecyclerViewAdapter.ItemClickLi
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
-        Date d = new Date();
-        String date = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
-        String mese = new SimpleDateFormat("MM", Locale.getDefault()).format(new Date());
-        String anno = new SimpleDateFormat("YYYY", Locale.getDefault()).format(new Date());
 
-        int posizione = Integer.parseInt(date);
+//        recyclerView.getLayoutManager().scrollToPosition(posizione - 1);
 
 
-        Log.e("mese", mese);
-        if ((mese.equals("10")) && (anno.equals("2019"))) {
-            posizione = ((posizione) + 30);
-        }
-        if ((mese.equals("11")) && (anno.equals("2019"))) {
-            posizione = ((posizione) + 61);
-        }
-        if ((mese.equals("12")) && (anno.equals("2019"))) {
-            posizione = ((posizione) + 91);
-        }
-        if ((mese.equals("01")) && (anno.equals("2020"))) {
-            posizione = ((posizione) + 122);
-        }
-        if ((mese.equals("02")) && (anno.equals("2020"))) {
-            posizione = ((posizione) + 154);
-        }
-        if ((mese.equals("03")) && (anno.equals("2020"))) {
-            posizione = ((posizione) + 182);
-        }
-        if ((mese.equals("04")) && (anno.equals("2020"))) {
-            posizione = ((posizione) + 213);
-        }
-        if ((mese.equals("05")) && (anno.equals("2020"))) {
-            posizione = ((posizione) + 243);
-        }
-        if ((mese.equals("06")) && (anno.equals("2020"))) {
-            posizione = ((posizione) + 274);
-        }
-
-
-        if (posizione < 0) {
-            posizione = 0;
-        }
-
-
-
-
-
-
-
-
-
-        recyclerView.getLayoutManager().scrollToPosition(posizione - 1);
 
 
         return v;
     }
-
-
-
-
-
-
-    private MyRecyclerViewAdapter adapter;
 
 
 
@@ -239,11 +160,15 @@ public class Menu2 extends Fragment implements MyRecyclerViewAdapter.ItemClickLi
 
 class OkHttpHandler extends AsyncTask<String, Void, String> {
     public ProgressDialog dialog;
+    public Exception mException;
+    private OnEventListener<Integer> mCallBack;
+
     OkHttpClient client = new OkHttpClient();
     private WeakReference<Context> contextRef;
 
-    public OkHttpHandler(Context context) {
+    public OkHttpHandler(Context context, OnEventListener callback) {
         contextRef = new WeakReference<>(context);
+        mCallBack = callback;
     }
 
     public void scrivi_str(String campo, String valore) {
@@ -261,12 +186,13 @@ class OkHttpHandler extends AsyncTask<String, Void, String> {
         dialog.setTitle("Download menù");
         dialog.setMessage("caricamento, attendere prego");
         dialog.setIndeterminate(true);
-        dialog.setCancelable(false);
+        dialog.setCancelable(true);
         dialog.show();
     }
 
     @Override
     protected String doInBackground(String... params) {
+
 
         OkHttpClient client = new OkHttpClient();
 
@@ -294,25 +220,123 @@ class OkHttpHandler extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
+        Date d = new Date();
+        String date = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
+        String mese = new SimpleDateFormat("MM", Locale.getDefault()).format(new Date());
+        String anno = new SimpleDateFormat("YYYY", Locale.getDefault()).format(new Date());
 
-
+        int posizione = Integer.parseInt(date);
         try {
             if (result != null && result.length() > 0) {
 
 
                 Menu2.menu = result;
 
+                String[] menu_cibo = Menu2.menu.split(",");
+
+
+                String day_appo;
+                int aa = menu_cibo.length;
+
+
+                for (int index = 1; index < aa - 1; index++) {
+                    day_appo = menu_cibo[index];
+
+                    System.out.println(day_appo);
+                    String[] day = day_appo.split(";");
+
+                    Menu2.data.add(day[0]);
+                    Menu2.giorno.add(day[1]);
+                    Menu2.primo.add(day[2]);
+                    Menu2.secondo.add(day[3]);
+                    Menu2.contorno.add(day[4]);
+                    Menu2.dolce.add(day[5]);
+                    Menu2.news.add(day[6]);
+
+
+                    day_appo = "";
+                }
+
+
+                Log.e("mese", mese);
+                if ((mese.equals("10")) && (anno.equals("2019"))) {
+                    posizione = ((posizione) + 30);
+                }
+                if ((mese.equals("11")) && (anno.equals("2019"))) {
+                    posizione = ((posizione) + 61);
+                }
+                if ((mese.equals("12")) && (anno.equals("2019"))) {
+                    posizione = ((posizione) + 91);
+                }
+                if ((mese.equals("01")) && (anno.equals("2020"))) {
+                    posizione = ((posizione) + 122);
+                }
+                if ((mese.equals("02")) && (anno.equals("2020"))) {
+                    posizione = ((posizione) + 154);
+                }
+                if ((mese.equals("03")) && (anno.equals("2020"))) {
+                    posizione = ((posizione) + 182);
+                }
+                if ((mese.equals("04")) && (anno.equals("2020"))) {
+                    posizione = ((posizione) + 213);
+                }
+                if ((mese.equals("05")) && (anno.equals("2020"))) {
+                    posizione = ((posizione) + 243);
+                }
+                if ((mese.equals("06")) && (anno.equals("2020"))) {
+                    posizione = ((posizione) + 274);
+                }
+
+
+                if (posizione < 0) {
+                    posizione = 0;
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 Log.e("menu", result);
 
                 dialog.dismiss();
 
-                Toast.makeText(contextRef.get(),result , Toast.LENGTH_SHORT).show();
+
+                //  Toast.makeText(contextRef.get(),result , Toast.LENGTH_SHORT).show();
                 Menu2.menu = result;
+
+
+//Menu2.adapter.notifyDataSetChanged();
+
+
+
+
+
+
 
             }
         } catch (Exception e) {
 
         }
+
+        if (mCallBack != null) {
+            if (mException == null) {
+                mCallBack.onSuccess(posizione);
+            } else {
+                mCallBack.onFailure(mException);
+            }
+        }
+
+
 
     }
 
