@@ -3,6 +3,7 @@ package com.mminf.mensafontenuova;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     private List<String> mcontorno;
     private List<String> mdolce;
 
-
+    private List<String> mnews;
 
 
 
@@ -38,7 +39,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         this.msecondo = secondo;
         this.mcontorno = contorno;
         this.mdolce = dolce;
-
+        this.mnews = news;
 
 
     }
@@ -61,15 +62,17 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         String secondo = msecondo.get(position);
         String contorno = mcontorno.get(position);
         String dolce = mdolce.get(position);
+        String news = mnews.get(position);
+
 
         holder.data.setText(data);
         holder.giorno.setText(giorno);
 
-        holder.primo.setText(primo);
+        holder.primo.setText(Html.fromHtml(primo));
         holder.secondo.setText(secondo);
         holder.contorno.setText(contorno);
         holder.dolce.setText(dolce);
-
+        holder.news.setText(news);
     }
 
     // total number of rows
@@ -101,6 +104,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         TextView secondo;
         TextView contorno;
         TextView dolce;
+        TextView news;
 
 
 
@@ -118,7 +122,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         contorno = itemView.findViewById(R.id.contorno);
         dolce = itemView.findViewById(R.id.dolce);
 
-
+            news = itemView.findViewById(R.id.news);
 
 
           itemView.setOnClickListener(this);

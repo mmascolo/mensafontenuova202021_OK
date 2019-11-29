@@ -24,6 +24,10 @@
         android:id="@+id/imageView"
         android:layout_width="119dp"
         android:layout_height="127dp"
-        app:srcCompat="@mipmap/logo_round" />
+        app:srcCompat="@drawable/logo_xmas" />
+
+    <com.jetradarmobile.snowfall.SnowfallView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

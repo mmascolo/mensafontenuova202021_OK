@@ -30,6 +30,10 @@
             android:name="com.mminf.mensafontenuova.ITCutiesReaderAppActivity2"
             android:parentActivityName="com.mminf.mensafontenuova.MainActivity"></activity>
 
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

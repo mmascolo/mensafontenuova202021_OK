@@ -10,133 +10,184 @@
     <TextView
         android:id="@+id/data"
 
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:autoText="false"
         android:fontFamily="serif"
+        android:gravity="center"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F60000"
         android:textSize="30sp"
         android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/giorno"
 
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:gravity="center"
         android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="18sp"
+        android:textColor="#F60000"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/vvv"
 
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="PRIMO"
+        android:gravity="center"
+        android:text="~"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F60000"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/primo"
 
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:fontFamily="cursive"
+        android:fontFamily="@font/arima_madurai_light"
+        android:gravity="center"
         android:text="TextView"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F60000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/primo5"
 
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="SECONDO"
+        android:gravity="center"
+        android:text="~"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F60000"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/secondo"
 
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:fontFamily="cursive"
+        android:fontFamily="@font/arima_madurai_light"
+        android:gravity="center"
         android:text="TextView"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F60000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/primo7"
 
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="CONTORNO"
+        android:gravity="center"
+        android:text="~"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F60000"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/contorno"
 
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:fontFamily="cursive"
+        android:fontFamily="@font/arima_madurai_light"
+        android:gravity="center"
         android:text="TextView"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F60000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/des"
 
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="DESSERT"
+        android:gravity="center"
+        android:text="~"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F60000"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/dolce"
 
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:fontFamily="cursive"
+        android:fontFamily="@font/arima_madurai_light"
+        android:gravity="center"
         android:text="TextView"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F60000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/news2"
 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:fontFamily="@font/fondamento"
+        android:gravity="center"
+        android:text="~"
+        android:textAlignment="center"
+        android:textColor="#F60000"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/news"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:fontFamily="@font/"
+        android:gravity="center"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#F60000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 
 </LinearLayout>
