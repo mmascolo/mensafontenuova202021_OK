@@ -97,7 +97,7 @@ public class Menu2 extends Fragment implements MyRecyclerViewAdapter.ItemClickLi
         OkHttpHandler downloadFilesTask = new OkHttpHandler(getContext(), new OnEventListener<Integer>() {
             @Override
             public void onSuccess(Integer posizione) {
-                Toast.makeText(getContext(), "Menu scaricato", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Menu Aggiornato", Toast.LENGTH_LONG).show();
 
 
                 recyclerView.getLayoutManager().scrollToPosition(posizione);
@@ -106,7 +106,7 @@ public class Menu2 extends Fragment implements MyRecyclerViewAdapter.ItemClickLi
 
             @Override
             public void onFailure(Exception e) {
-                Toast.makeText(getContext(), "Errore no connessione. " + e.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Errore nessuna connessione internet." + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 
