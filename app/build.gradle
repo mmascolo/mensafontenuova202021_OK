@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
 
 
     defaultConfig {
         applicationId 'com.mminf.mensafontenuova'
         minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 22
-        versionName '4xmas'
+        targetSdkVersion 30
+        versionCode 56
+        versionName 'ae2020'
     }
     buildTypes {
         release {

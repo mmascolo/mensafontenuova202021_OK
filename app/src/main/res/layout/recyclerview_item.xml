@@ -19,7 +19,7 @@
         android:fontFamily="serif"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="#F60000"
+        android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold|italic" />
 
@@ -33,7 +33,7 @@
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="#F60000"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
         android:gravity="center"
         android:text="~"
         android:textAlignment="center"
-        android:textColor="#F60000"
+        android:textColor="#3A3A3A"
         android:textStyle="bold" />
 
     <TextView
@@ -63,7 +63,7 @@
         android:gravity="center"
         android:text="TextView"
         android:textAlignment="center"
-        android:textColor="#F60000"
+        android:textColor="#050505"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -78,7 +78,7 @@
         android:gravity="center"
         android:text="~"
         android:textAlignment="center"
-        android:textColor="#F60000"
+        android:textColor="#3A3A3A"
         android:textStyle="bold" />
 
     <TextView
@@ -93,7 +93,7 @@
         android:gravity="center"
         android:text="TextView"
         android:textAlignment="center"
-        android:textColor="#F60000"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -108,7 +108,7 @@
         android:gravity="center"
         android:text="~"
         android:textAlignment="center"
-        android:textColor="#F60000"
+        android:textColor="#3A3A3A"
         android:textStyle="bold" />
 
     <TextView
@@ -123,7 +123,7 @@
         android:gravity="center"
         android:text="TextView"
         android:textAlignment="center"
-        android:textColor="#F60000"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -138,7 +138,7 @@
         android:gravity="center"
         android:text="~"
         android:textAlignment="center"
-        android:textColor="#F60000"
+        android:textColor="#3A3A3A"
         android:textStyle="bold" />
 
     <TextView
@@ -153,7 +153,7 @@
         android:gravity="center"
         android:text="TextView"
         android:textAlignment="center"
-        android:textColor="#F60000"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -169,7 +169,7 @@
         android:gravity="center"
         android:text="~"
         android:textAlignment="center"
-        android:textColor="#F60000"
+        android:textColor="#3A3A3A"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -185,7 +185,7 @@
         android:gravity="center"
         android:text="TextView"
         android:textAlignment="center"
-        android:textColor="#F60000"
+        android:textColor="#3A3A3A"
         android:textSize="24sp"
         android:textStyle="bold" />
 

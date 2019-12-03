@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="#2090EB"
+    android:background="#c4df9b"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -24,7 +24,7 @@
         android:id="@+id/imageView"
         android:layout_width="119dp"
         android:layout_height="127dp"
-        app:srcCompat="@drawable/logo_xmas" />
+        app:srcCompat="@mipmap/web_hi_res_512" />
 
     <com.jetradarmobile.snowfall.SnowfallView
         android:layout_width="match_parent"

@@ -259,32 +259,33 @@ class OkHttpHandler extends AsyncTask<String, Void, String> {
 
 
                 Log.e("mese", mese);
-                if ((mese.equals("10")) && (anno.equals("2019"))) {
+
+                if ((mese.equals("10")) && (anno.equals("2020"))) {
                     posizione = ((posizione) + 30);
                 }
-                if ((mese.equals("11")) && (anno.equals("2019"))) {
+                if ((mese.equals("11")) && (anno.equals("2020"))) {
                     posizione = ((posizione) + 61);
                 }
-                if ((mese.equals("12")) && (anno.equals("2019"))) {
+                if ((mese.equals("12")) && (anno.equals("2020"))) {
                     posizione = ((posizione) + 91);
                 }
-                if ((mese.equals("01")) && (anno.equals("2020"))) {
+                if ((mese.equals("01")) && (anno.equals("2021"))) {
                     posizione = ((posizione) + 122);
                 }
-                if ((mese.equals("02")) && (anno.equals("2020"))) {
-                    posizione = ((posizione) + 154);
+                if ((mese.equals("02")) && (anno.equals("2021"))) {
+                    posizione = ((posizione) + 153);
                 }
-                if ((mese.equals("03")) && (anno.equals("2020"))) {
-                    posizione = ((posizione) + 182);
+                if ((mese.equals("03")) && (anno.equals("2021"))) {
+                    posizione = ((posizione) + 181);
                 }
-                if ((mese.equals("04")) && (anno.equals("2020"))) {
-                    posizione = ((posizione) + 213);
+                if ((mese.equals("04")) && (anno.equals("2021"))) {
+                    posizione = ((posizione) + 212);
                 }
-                if ((mese.equals("05")) && (anno.equals("2020"))) {
-                    posizione = ((posizione) + 243);
+                if ((mese.equals("05")) && (anno.equals("2021"))) {
+                    posizione = ((posizione) + 242);
                 }
-                if ((mese.equals("06")) && (anno.equals("2020"))) {
-                    posizione = ((posizione) + 274);
+                if ((mese.equals("06")) && (anno.equals("2021"))) {
+                    posizione = ((posizione) + 273);
                 }
 
 

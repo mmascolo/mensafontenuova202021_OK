@@ -9,13 +9,9 @@
             android:icon="@mipmap/cameriere"
             android:title="Menù" />
         <item
-            android:id="@+id/nav_menu2"
-            android:icon="@mipmap/saldo"
-            android:title="Saldo" />
-        <item
             android:id="@+id/nav_menu3"
-            android:icon="@mipmap/rss"
-            android:title="News Pertini" />
+            android:icon="@mipmap/www"
+            android:title="Sito Pertini" />
         <item
             android:id="@+id/nav_menu4"
             android:icon="@mipmap/www"
@@ -31,7 +27,8 @@
         <item
             android:id="@+id/nav_menu7"
             android:icon="@mipmap/sett"
-            android:title="Impostazioni" />
+            android:title="Impostazioni"
+            android:visible="false" />
         <item
             android:id="@+id/nav_menu8"
             android:icon="@mipmap/www"
@@ -40,6 +37,11 @@
         <item
             android:id="@+id/nav_menu9"
             android:title="Copyright Mascolo Michele" />
+        <item
+            android:id="@+id/nav_menu2"
+            android:icon="@mipmap/saldo"
+            android:title="Saldo"
+            android:visible="false" />
 
 
     </group>
