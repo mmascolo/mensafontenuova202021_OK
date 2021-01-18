@@ -97,16 +97,13 @@ public class Menu2 extends Fragment implements MyRecyclerViewAdapter.ItemClickLi
         OkHttpHandler downloadFilesTask = new OkHttpHandler(getContext(), new OnEventListener<Integer>() {
             @Override
             public void onSuccess(Integer posizione) {
-                Toast.makeText(getContext(), "Menu Aggiornato", Toast.LENGTH_LONG).show();
+            recyclerView.getLayoutManager().scrollToPosition(posizione);
 
-
-                recyclerView.getLayoutManager().scrollToPosition(posizione);
 
             }
 
             @Override
             public void onFailure(Exception e) {
-                Toast.makeText(getContext(), "Errore nessuna connessione internet." + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -178,16 +175,9 @@ class OkHttpHandler extends AsyncTask<String, Void, String> {
 
     protected void onPreExecute() {
 
-        Log.e("contex", contextRef.get().toString());
 
 
-        //dialog
-        dialog = new ProgressDialog(contextRef.get());
-        dialog.setTitle("Download menù");
-        dialog.setMessage("caricamento, attendere prego");
-        dialog.setIndeterminate(true);
-        dialog.setCancelable(true);
-        dialog.show();
+
     }
 
     @Override
@@ -223,7 +213,7 @@ class OkHttpHandler extends AsyncTask<String, Void, String> {
         Date d = new Date();
         String date = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
         String mese = new SimpleDateFormat("MM", Locale.getDefault()).format(new Date());
-        String anno = new SimpleDateFormat("YYYY", Locale.getDefault()).format(new Date());
+        String anno = new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date());
 
         int posizione = Integer.parseInt(date);
         try {
@@ -309,7 +299,7 @@ class OkHttpHandler extends AsyncTask<String, Void, String> {
 
                 Log.e("menu", result);
 
-                dialog.dismiss();
+
 
 
                 //  Toast.makeText(contextRef.get(),result , Toast.LENGTH_SHORT).show();
