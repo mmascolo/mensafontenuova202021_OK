@@ -8,8 +8,8 @@ android {
         applicationId 'com.mminf.mensafontenuova'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 58
-        versionName 'ae202021.1'
+        versionCode 59
+        versionName 'ae202021.2'
     }
     buildTypes {
         release {
