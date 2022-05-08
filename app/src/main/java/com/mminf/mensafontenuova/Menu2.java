@@ -97,7 +97,7 @@ public class Menu2 extends Fragment implements MyRecyclerViewAdapter.ItemClickLi
         OkHttpHandler downloadFilesTask = new OkHttpHandler(getContext(), new OnEventListener<Integer>() {
             @Override
             public void onSuccess(Integer posizione) {
-            recyclerView.getLayoutManager().scrollToPosition(posizione);
+             recyclerView.getLayoutManager().scrollToPosition(posizione);
 
 
             }
@@ -216,6 +216,7 @@ class OkHttpHandler extends AsyncTask<String, Void, String> {
         String anno = new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date());
 
         int posizione = Integer.parseInt(date);
+        Log.e("POSIZIONE", String.valueOf(posizione));
         try {
             if (result != null && result.length() > 0) {
 
@@ -227,14 +228,16 @@ class OkHttpHandler extends AsyncTask<String, Void, String> {
 
                 String day_appo;
                 int aa = menu_cibo.length;
-
+                Log.d("quanti", String.valueOf(aa));
+                Log.d("mese", String.valueOf(mese));
+                Log.d("anno", String.valueOf(anno));
 
                 for (int index = 1; index < aa - 1; index++) {
                     day_appo = menu_cibo[index];
 
                     System.out.println(day_appo);
+                    Log.e("DAY", day_appo);
                     String[] day = day_appo.split(";");
-
                     Menu2.data.add(day[0]);
                     Menu2.giorno.add(day[1]);
                     Menu2.primo.add(day[2]);
@@ -247,40 +250,56 @@ class OkHttpHandler extends AsyncTask<String, Void, String> {
                     day_appo = "";
                 }
 
+                Log.d("mese", "controllo");
 
-                Log.e("mese", mese);
+                Log.d("mese", String.valueOf(mese));
+                Log.d("anno", String.valueOf(anno));
+                if ((mese.equals("09")) && (anno.equals("2021"))) {
+                    posizione = ((posizione)  );
 
-                if ((mese.equals("10")) && (anno.equals("2020"))) {
+
+
+
+
+                    Log.d("posizione", String.valueOf(posizione));
+                }
+
+                if ((mese.equals("10")) && (anno.equals("2021"))) {
                     posizione = ((posizione) + 30);
                 }
-                if ((mese.equals("11")) && (anno.equals("2020"))) {
+                if ((mese.equals("11")) && (anno.equals("2021"))) {
                     posizione = ((posizione) + 61);
                 }
-                if ((mese.equals("12")) && (anno.equals("2020"))) {
+                if ((mese.equals("12")) && (anno.equals("2021"))) {
                     posizione = ((posizione) + 91);
                 }
-                if ((mese.equals("01")) && (anno.equals("2021"))) {
+                if ((mese.equals("01")) && (anno.equals("2022"))) {
                     posizione = ((posizione) + 122);
                 }
-                if ((mese.equals("02")) && (anno.equals("2021"))) {
+                if ((mese.equals("02")) && (anno.equals("2022"))) {
                     posizione = ((posizione) + 153);
                 }
-                if ((mese.equals("03")) && (anno.equals("2021"))) {
+                if ((mese.equals("03")) && (anno.equals("2022"))) {
                     posizione = ((posizione) + 181);
                 }
-                if ((mese.equals("04")) && (anno.equals("2021"))) {
+                if ((mese.equals("04")) && (anno.equals("2022"))) {
                     posizione = ((posizione) + 212);
                 }
-                if ((mese.equals("05")) && (anno.equals("2021"))) {
+                if ((mese.equals("05")) && (anno.equals("2022"))) {
                     posizione = ((posizione) + 242);
                 }
-                if ((mese.equals("06")) && (anno.equals("2021"))) {
+                if ((mese.equals("06")) && (anno.equals("2022"))) {
                     posizione = ((posizione) + 273);
                 }
-
+                if ((mese.equals("07")) && (anno.equals("2022"))) {
+                    posizione = ((posizione) + 303);
+                }
 
                 if (posizione < 0) {
-                    posizione = 0;
+                    posizione = 1;
+
+                    if (posizione > aa) {
+                        posizione = 1;}
                 }
 
 
@@ -293,11 +312,11 @@ class OkHttpHandler extends AsyncTask<String, Void, String> {
 
 
 
+                Log.d("POSIZIONE_finale", String.valueOf(posizione));
 
 
 
-
-                Log.e("menu", result);
+                Log.d("menu", result);
 
 
 

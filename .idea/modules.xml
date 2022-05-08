@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Mensa_FonteNuova_android_OK.iml" filepath="$PROJECT_DIR$/.idea/modules/Mensa_FonteNuova_android_OK.iml" group="Mensa_FonteNuova_android_OK" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Mensa_FonteNuova_android_OK-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Mensa_FonteNuova_android_OK-app.iml" group="Mensa_FonteNuova_android_OK/app" />
-      <module fileurl="file://$PROJECT_DIR$/Mensa_FonteNuova_android_OK_new.iml" filepath="$PROJECT_DIR$/Mensa_FonteNuova_android_OK_new.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mensafontenuova202021.iml" filepath="$PROJECT_DIR$/.idea/modules/mensafontenuova202021.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mensafontenuova202021.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mensafontenuova202021.app.iml" />
     </modules>
   </component>
 </project>
